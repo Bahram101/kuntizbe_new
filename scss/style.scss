@@ -1,0 +1,1546 @@
+$mainColor: #2b6e7e;
+$fontSize: 16px;
+$borderDash: rgba(0, 0, 0, 0.3);
+
+@mixin font($mainColor: #2b6e7e, $fontSize: 16px) {
+    color: $mainColor;
+    font-size: $fontSize;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: Calibri, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+p {
+    margin: 0;
+}
+.overflow-y{
+    overflow-y: hidden;
+}
+
+.desktop {    
+    height: 100vh;
+    overflow-x: hidden;
+    width:100%;  
+    background-image: url(../img/background.png);
+    background-repeat: repeat;
+    background-size: 100px;
+    .backOverlay{
+        background-color:rgba(255,255,255,0.4);
+        position: absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+
+        .center-vertically{
+            display:flex;
+            align-items: center;
+            .curtainsUp{
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:50vh;
+                display: flex;
+                justify-content: center;
+                z-index: 10;
+                transition:1.8s;
+                background:white;
+                .open-up{
+                    top:0;
+                    // box-shadow: 0px -70px 0px 70px rgba(255,255,255,1);     
+                    position: absolute;
+                    height:50vh;
+                    width:1140px;
+                    // background: #fff;
+                    z-index:10;
+                    transition:1.8s;   
+                    margin:0 auto;
+                    display: flex;
+                    justify-content: center; 
+                    img.uzor-up {
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 40%;
+                    }
+                }
+                .line-up{
+                    width: 0;
+                    height: 1px;
+                    background: $mainColor;
+                    z-index: 27;
+                    position: absolute;
+                    bottom: 0;
+                    transition:0.8s;
+                    transform:scaleX(0);                
+                }
+                .line-up-action{
+                    width:1140px;
+                    transform:scaleX(1);
+                }
+            }            
+            .curtainsDown{
+                position: absolute;
+                bottom:0;
+                left:0;
+                width:100%;
+                height:50vh;
+                display: flex;
+                justify-content: center;
+                transition:1.8s;
+                background:white;
+                .open-down{
+                    bottom:0; 
+                    position: absolute;
+                    height:50vh;
+                    width:1140px;
+                    z-index:2;
+                    transition:1.8s;  
+                    display: flex;
+                    justify-content: center;
+                    img.uzor-down {
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 18%;
+                    }
+    
+                }
+                .line-down{
+                    width: 0;
+                    height: 1px;
+                    background: $mainColor;
+                    z-index: 27;
+                    position: absolute;
+                    top:0;
+                    transition:0.8s;
+                    transform:scaleX(0);                
+                }
+                .line-down-action{
+                    width:1140px;
+                    transform:scaleX(1);
+                }          
+            }                   
+            .dispNone{
+                display: none;
+            }
+            .up{
+                transform: translateY(-347px);
+            }
+            .down{
+                transform: translateY(347px);
+            }
+            .container {
+                background: rgb(255, 255, 255);
+                border-left: 1px dashed $borderDash;
+                border-bottom: 1px solid $mainColor;
+                border-top: 1px solid $mainColor;
+                position: relative;
+                // position: fixed;
+                // left: 50%;
+                // transform: translateX(-50%);
+                // top: 50%;
+                // transform: translateY(-50%);    
+                box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+                    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                height: 694px;
+                .uzor-up{
+                    position:absolute;
+                    width:40%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: -67px;
+                }
+                .uzor-down{
+                    position: absolute;
+                    width:18%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: -40px;
+                }
+                    
+                .header {
+                    .row {
+                        position: relative;
+                        display: flex;
+                        justify-content: flex-end;
+                        .logo {
+                            border-bottom: 1px dashed $borderDash;
+                            position: absolute;
+                            height: 100%;
+                            left: 0;
+                            z-index: 2;
+                            box-shadow: 17px 0px 17px -9px rgba(0, 0, 0, 0.3);
+                            img {
+                                // position: absolute;
+                                z-index: 10;
+                            }
+                        }
+                    }
+                    .header-top {
+                        background: $mainColor;
+                        @include font(white, 18px);
+                        .order {
+                            padding-right: 20px;
+                        }
+                        .social a {
+                            color: white;
+                            padding: 10px 20px;
+                            border-left: 1px solid white;
+                        }
+                    }
+                    .menu {
+                        background-image: url(/img/menu_background.jpg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        border-bottom: 1px dashed $borderDash;
+                        border-right: 1px dashed $borderDash;
+                        .menuOverlay{
+                            width:100%;
+                            background: rgba(255,255,255,0.6);
+                            .menu-item {
+                                padding: 50px 20px;
+                                a {
+                                    @include font($fontSize: 20px);
+                                    text-decoration: none;
+                                    position: relative;
+                                    &::before{
+                                        content:"";
+                                        position:absolute;
+                                        width:0%;
+                                        height:2px;
+                                        background:$mainColor;    
+                                        bottom:0;                                                                           
+                                        left:0;
+                                        // transform:scaleX(0);
+                                        transition:0.3s;
+                                    }
+                                    &:hover:before{
+                                        width:100%;
+                                        // transform:scaleX(1);
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            
+                .main {
+                    .sidebar {
+                        padding-left: 25px;
+                        padding-right: 25px;
+                        .namaztimes-block-2 {
+                            flex: 1;
+                            .timer {
+                                flex: 1;
+                                .info {
+                                    color: $mainColor;
+                                    margin-bottom: 40px;
+                                }
+                            }
+                        }
+                        .search {
+                            border-bottom: 1px dashed $borderDash;
+                            padding: 23px 0;
+                            form {
+                                display: flex;
+                                input {
+                                    width: 100%;
+                                    padding: 5px 5px;
+                                    border: 1px solid $mainColor;
+                                }
+                                button {
+                                    background: $mainColor;
+                                    color: white;
+                                    border: none;
+                                    padding: 4px 10px;
+                                    font-size: 20px;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        .city {
+                            padding: 12px 0 13px 0;
+                            border-bottom: 1px dashed $borderDash;
+                            .city-name {
+                                margin-bottom: 0;
+                                @include font($fontSize: 24px);
+                            }
+                        }
+                        .namaztimes {
+                            border-bottom: 1px dashed $borderDash;
+                            padding-top: 4px;
+                            padding-bottom: 11px;
+                            justify-content: center;
+                            table {
+                                tr.active {
+                                    background: #ebedec;
+                                }
+                                td {
+                                    border-top: none;
+                                    @include font($fontSize: 19px);
+                                    padding: 0;
+                                }
+                                td.namazname {
+                                    width: 40%;
+                                }
+                                td.space {
+                                    width: 20%;
+                                    text-align: center;
+                                }
+                                td.namaztime {
+                                    width: 40%;
+                                    text-align: right;
+                                }
+                            }
+                        }
+                        .month-year {
+                            border-bottom: 1px dashed $borderDash;
+                            padding-top: 13px;
+                            padding-bottom: 13px;
+                            .month,
+                            .year {
+                                @include font($fontSize: 18px, $mainColor: #727272);
+                            }
+                            .month {
+                                border-right: 1px dashed $borderDash;
+                            }
+                        }
+                        .timer h4 {
+                            @include font($fontSize: 18px, $mainColor: red);
+                        }
+                        .infos-item {
+                            border-bottom: 1px dashed $borderDash;
+                        }
+                        .infos-item,
+                        .cities-item {
+                            @include font($fontSize: 18px);
+                            padding: 5px 0;
+                            display: block;
+                            text-decoration: none;
+                            &:last-child {
+                                border-bottom: none;
+                            }
+                        }
+                        .cities {
+                            width: 284.75px;
+                        }
+                    }
+            
+                    .content {
+                        width: 854.25px;
+                        height: 514px;
+                        border-left: 1px dashed $borderDash;
+                        border-right: 1px dashed $borderDash;
+                        padding-left: 25px;
+                        padding-right: 25px;
+                        padding-bottom: 10px;
+                        position: relative;
+                        perspective: 1000px;
+                        .article-buttons {
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+                            border-bottom: 1px dashed $borderDash;
+                            .calendar {
+                                padding-left: 25px !important;
+                            }
+                            .buttons-item {
+                                border: 1px solid $mainColor;
+                                padding: 6px 15px;
+                                width: 18%;
+                                position: relative;
+                                box-shadow: inset 0 0 0 0 $mainColor;  
+                                transition: ease-out 0.3s;      
+                                &:hover{
+                                    color:white;
+                                }
+                                &:hover .fas{
+                                    color:white;
+                                }
+                                &:before{
+                                    content:"";
+                                    position:absolute;
+                                    top:0;
+                                    bottom:0;
+                                    left:50%;
+                                    right:50%;
+                                    transition: 0.5s all ease;
+                                    background:$mainColor;
+                                    opacity:0;                                    
+                                }                        
+                                &:hover:before{
+                                    left:0;
+                                    right:0;
+                                    opacity:1;
+                                    z-index:-1;
+                                }
+                                
+                                .fa-arrow-circle-left {
+                                    position: absolute;
+                                    top: 9px;
+                                    left: 13px;
+                                    color: $mainColor;
+                                }
+                                .fa-arrow-circle-right {
+                                    position: absolute;
+                                    top: 9px;
+                                    right: 13px;
+                                    color: $mainColor;
+                                }
+                                .fa-calendar-alt {
+                                    position: absolute;
+                                    top: 9px;
+                                    right: 20px;
+                                    color: $mainColor;
+                                }
+                                .backIcon,
+                                .frontIcon {
+                                    position: absolute;
+                                    top: 9px;
+                                    color: $mainColor;
+                                }
+                                .backIcon {
+                                    // transform: scaleX(-1) rotateY(180deg);
+                                    transform: rotateX(180deg);
+                                    right: 15px;
+                                }
+                                .frontIcon {
+                                    transform: rotate(180deg);
+                                    right: 8px;
+                                }
+                            }
+                            a {
+                                @include font($mainColor: #727272);
+                                text-decoration: none;
+                            }
+                        }
+                        
+                        .frontpage,
+                        .backpage {
+                            height: 425px;
+                            position: absolute;
+                            transition: 1s;
+                            backface-visibility: hidden;
+                            -webkit-backface-visibility: hidden;
+                        }                        
+                        
+                        .frontBackFade{ 
+                            top:0;
+                            left:0;
+                            width: 827.25px;
+                            height: 425px;
+                            position:absolute;
+                            background:#f7f7f7;
+                            opacity:0;
+                            transition:1s;       
+                            top: 79px;
+                            left: 25px;
+                        }
+                        .changeFade{       
+                            opacity:1;                                                        
+                        }
+                        .hideFade{
+                            display: none;
+                        }
+                        .calendarContent{
+                            position: relative;
+                            &:before{
+                                content:"";
+                                top:0;
+                                left:0;
+                                width:100%;
+                                height:100%;
+                                position:absolute;
+                                background:#f7f7f7;
+                                opacity:0;
+                                transition:1s;
+                            }                            
+                        }
+            
+                        .frontpage {
+                            padding-right: 25px;
+                            .hijri-date {
+                                @include font($mainColor: #2b2a28, $fontSize: 20);
+                                margin-bottom: 0;
+                                padding: 10px 0;
+                                border-bottom: 1px dashed $borderDash;
+                            }
+                            .miladi-date {
+                                border-bottom: 1px dashed $borderDash;
+                                .m-day {
+                                    @include font($fontSize: 160px);
+                                }
+                                .day,
+                                .month,
+                                .week {
+                                    @include font($fontSize: 40px);
+                                    margin-left: 20px;
+                                    line-height: 40px;
+                                }
+                            }
+                            .day-history {
+                                padding: 20px;
+                                border-bottom: 1px dashed $borderDash;
+                                .history-text {
+                                    font-size: 18px;
+                                }
+                            }
+                            .hadis {
+                                padding: 20px;
+                                .hadis-text {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+            
+                        .backpage {
+                            background: white;
+                            transform: rotateY(-180deg);
+                        }
+                        
+                        .infopage {
+                            .info-item {
+                                border-bottom: 1px dashed $borderDash;
+                                padding-top: 20px;
+                                padding-bottom: 20px;
+                                &:first-child {
+                                    padding-top: 0;
+                                }
+                                &:last-child {
+                                    border-bottom: 0;
+                                }
+                            }
+                        }
+            
+                        .infopage,
+                        .bookspage,
+                        .linkspage {
+                            height: 504px;
+                            .col-lg-4{
+                                padding:15px;
+                                img{
+                                    width:100%;
+                                }
+                            }
+                        }
+            
+                        .bookspage {
+                            .book {
+                                border-bottom: 1px dashed $borderDash;
+                                .book-image img {
+                                    width: 140px;
+                                    display: block;
+                                    margin: 0 auto;
+                                }
+                                .book-description {
+                                    font-size: 18px;
+                                    padding-right: 15px;
+                                    padding-left: 0;
+                                }
+                                .download {
+                                    display: block;
+                                    text-align: right;
+                                    margin-right: 15px;
+                                    @include font($mainColor: white);
+                                    background: $mainColor;
+                                    padding: 3px 7px;
+                                    text-decoration: none;
+                                    .fa-download {
+                                        margin-right: 5px;
+                                    }
+                                }
+                                &:last-child {
+                                    border-bottom: none;
+                                }
+                            }
+                        }
+            
+                        .backpage,
+                        .infopage,
+                        .bookspage {
+                            overflow-x: hidden;
+                            .type {
+                                font-size: 22px;
+                                font-weight: bold;
+                                padding-top: 5px;
+                            }
+                            .title {
+                                font-size: 20px;
+                                font-weight: bold;
+                            }
+                            .text {
+                                font-size: 18px;
+                                text-align: justify;
+                                margin-right: 10px;
+                                margin-bottom: 0;
+                            }
+                        }
+                        
+                        .rotateFront {
+                            transform: rotateY(-180deg);
+                        }
+                        .rotateBack {
+                            transform: rotateY(-360deg);
+                        }
+                    }
+                }
+            }
+        } 
+    }
+     
+   
+}
+
+@media(max-height:694px){    
+    .desktop{
+        height:830px;
+        .backOverlay{
+            height:inherit;
+            .center-vertically{
+                height:inherit;
+                .curtainsUp{
+                    height:415px;
+                    .open-up{
+                        height:inherit;
+                    }                   
+                     
+                }
+                .curtainsDown{
+                    height:415px;
+                    .open-down{
+                        height:inherit;
+                    }
+                }
+            }
+        }
+    }     
+}
+
+@media(min-height:695px){
+    body{
+        // overflow-y: hidden;
+        .desktop{
+            .center-vertically{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;                
+            }
+        } 
+    }       
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .desktop{
+        .backOverlay{
+            .center-vertically{
+                .curtainsUp{
+                    .open-up{
+                        width:960px;
+                    }
+                    .line-up-action{
+                        width:960px;
+                    }
+                }
+                .curtainsDown{
+                    .open-down{
+                        width:960px;
+                    }
+                    .line-down-action{
+                        width:960px;
+                    }
+                }
+                 
+                .container {
+                    .uzor-up{
+                        top:-57px;
+                    }
+                    .uzor-down{
+                        bottom:-33px;
+                    }
+                    .header {
+                        .menu {
+                            .menuOverlay{
+                                .menu-item {
+                                    padding: 50px 17px;
+                                }
+                            }
+                        }
+                       
+                    }
+                    .main {
+                        .content {
+                            .article-buttons .buttons-item {
+                                padding: 6px 10px;
+                                .fa-arrow-circle-right {
+                                    right: 6px;
+                                }
+                                .backIcon {
+                                    right: 10px;
+                                }
+                                .fa-calendar-alt {
+                                    right: 15px;
+                                }
+                            }
+                            .article-buttons .buttons-item.back {
+                                padding: 6px 8px !important;
+                            }
+                            .article-buttons .calendar {
+                                padding-left: 15px !important;
+                            }
+                        }
+                    }    
+                }
+            } 
+        }
+              
+    }    
+}
+
+
+
+// ON MOBILE
+.mobile {
+    height: 100%;
+}
+.main-block {
+    height: 95%;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 70px;
+    .contain {
+        min-height: 97%;
+        width: 100% !important;
+        .tab-content {
+            height: 100%;
+            .tab1 {
+                height: 100%;
+                .owl-carousel {
+                    height: 100%;
+                    .owl-stage-outer {
+                        height: 100%;
+                        .owl-stage {
+                            height: 100%;
+                            .owl-item {
+                                height: 100%;
+                                .slide1 {
+                                    padding: 0 30px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    height: 80vh;
+                                    .namaztimes-block-1 {
+                                        flex: 3;
+                                        overflow-y: scroll;
+                                        .city {
+                                            border-bottom: 1px dashed $borderDash;
+                                            flex: 1;
+                                            .city-name {
+                                                @include font($fontSize: 32px);
+                                                margin-bottom: 0;
+                                            }
+                                        }
+                                        .date{
+                                            display: flex;
+                                            flex-direction: column;
+                                            border-bottom: 1px dashed $borderDash;
+                                            align-items: center;
+                                            justify-content: center;
+                                            padding: 0px;
+                                            flex: 1;
+                                            .hijri-date, .miladi-date{
+                                                @include font($fontSize:20px)
+                                            }
+                                        }
+                                        .namaztimes {
+                                            flex: 4;
+                                            padding-top: 4px;
+                                            padding-bottom: 11px;
+                                            overflow-y: scroll;
+                                            table {
+                                                max-width: 330px;
+                                                tr {
+                                                    border-bottom: 1px solid
+                                                        rgba(0, 0, 0, 0.1);
+                                                    &:last-child {
+                                                        border-bottom: none;
+                                                    }
+                                                }
+                                                tr.active {
+                                                    background: #ebedec;
+                                                }
+                                                td {
+                                                    border-top: none;
+                                                    @include font(
+                                                        $fontSize: 22px
+                                                    );
+                                                    padding: 2px;
+                                                }
+                                                td.namazname {
+                                                    width: 40%;
+                                                }
+                                                td.space {
+                                                    width: 20%;
+                                                    text-align: center;
+                                                }
+                                                td.namaztime {
+                                                    width: 40%;
+                                                    text-align: right;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .namaztimes-block-2 {
+                                        flex: 1;
+                                        justify-content: center;
+                                        h4 {
+                                            @include font($fontSize: 20px);
+                                            .time {
+                                                color: red;
+                                            }
+                                        }
+                                    }
+                                }
+                                .slide2 {
+                                    display: flex;
+                                    flex-direction: column;
+                                    padding: 0 30px;
+                                    height: 80vh;
+                                    .search-block {
+                                        display: flex;
+                                        flex: 1;
+                                        align-items: center;
+                                        border-bottom: 1px dashed $borderDash;
+                                        padding: 0;
+                                        .search {
+                                            margin: 0 auto;
+                                        }
+                                        form {
+                                            display: flex;
+                                            width: 100%;
+                                            height: 35px;
+                                            max-width: 330px;
+                                            margin: 0 auto;
+                                            input {
+                                                width: 100%;
+                                                padding: 5px 12px;
+                                                border: 1px solid $mainColor;
+                                                border-radius: 25px 0 0 25px;
+                                            }
+                                            button {
+                                                background: $mainColor;
+                                                color: white;
+                                                border: none;
+                                                padding: 3px 25px;
+                                                font-size: 20px;
+                                                font-weight: bold;
+                                                border-radius: 0 25px 25px 0;
+                                            }
+                                        }
+                                    }
+                                    
+                                    .add-times {
+                                        flex: 6;
+                                        .checkboxes {
+                                            padding-top: 40px;
+                                            max-width: 330px;
+                                            margin: 0 auto;
+                                            .checkbox-item {
+                                                border-bottom: 1px solid
+                                                    rgba(0, 0, 0, 0.1);
+                                                &:last-child {
+                                                    border-bottom: none;
+                                                }
+                                                label {
+                                                    @include font(
+                                                        $fontSize: 22px
+                                                    );
+                                                    margin-bottom: 0;
+                                                    padding-bottom: 5px;
+                                                    padding-top: 5px;                                                    
+                                                    width:88%;
+                                                }
+                                                input {
+                                                    position: relative;
+                                                    width: 43px;
+                                                    height: 16px;
+                                                    appearance: none;
+                                                    //    background:#c6c6c6;
+                                                    //    border:1px solid #9D9F9E;
+                                                    outline: none;
+                                                    border-radius: 20px;
+                                                    transition: 0.5s;
+                                                    //    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+                                                }
+                                                input:checked {
+                                                    background: #94b5be;
+                                                }
+                                                input:before {
+                                                    content: "";
+                                                    position: absolute;
+                                                    width: 16px;
+                                                    height: 16px;
+                                                    border-radius: 9px;
+                                                    background: #8b8e8c;
+                                                    left: 0;
+                                                    top: 0;
+                                                    transition: 0.3s;
+                                                }
+                                                input:checked:before {
+                                                    left: 28px;
+                                                    background: $mainColor;
+                                                }
+                                                input:after {
+                                                    content: "";
+                                                    position: absolute;
+                                                    width: 50px;
+                                                    height: 22px;
+                                                    background: transparent;
+                                                    border: 1px solid #9d9f9e;
+                                                    border-radius: 22px;
+                                                    top: -3px;
+                                                    left: -3px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .owl-nav {
+                        margin-top: 10px;
+                        position: fixed;
+                        width:100%;
+                        left: 50%;
+                        bottom: 70px;
+                        transform: translateX(-50%);
+                        button {
+                            width: 10px;
+                            height: 10px;
+                            background: $mainColor;
+                            opacity: 0.5;
+                            border-radius: 10px;
+                            outline: none;
+                        }
+                        .disabled {
+                            opacity: 1;
+                        }
+                    }
+                    .owl-dots{
+                        position: fixed;
+                        left: 50%;
+                        bottom: 70px;
+                        transform: translateX(-50%);
+                        .owl-dot.active span{
+                            background:$mainColor;
+                        }
+                    }
+                }
+            }
+            .tab2 {
+                height: 100%;
+                .owl-carousel {
+                    height: 100%;
+                    .owl-stage-outer {
+                        height: 100%;
+                        .owl-stage {
+                            height: 100%;
+                            .owl-item {
+                                height: 100%;  
+                                                        
+                                .item {
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    padding: 20px;
+                                    padding: 0 20px;
+                                    height: 80vh;
+                                    .hijri-block,
+                                    .miladi-block,
+                                    .history-block,
+                                    .hadis-block {
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        padding-top: 5px;
+                                        padding-bottom: 5px;
+                                    }
+                                    .hijri-block {
+                                        flex: 1;
+                                        border-bottom: 1px dashed $borderDash;
+                                        .hijri-date {
+                                            @include font(
+                                                $fontSize: 20px,
+                                                $mainColor: #2b2a28
+                                            );
+                                        }
+                                    }
+                                    .miladi-block {
+                                        // margin-bottom:10px;
+                                        border-bottom: 1px dashed $borderDash;
+                                        flex: 4;
+                                        .miladi-date {
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            .day {
+                                                margin: 0;
+                                                @include font($fontSize: 180px);
+                                            }
+                                            .month-year {
+                                                margin: 0;
+                                                @include font(
+                                                    $fontSize: 24px,
+                                                    $mainColor: #2b2a28
+                                                );
+                                            }
+                                            .week-day {
+                                                margin: 0;
+                                                @include font($fontSize: 24px);
+                                            }
+                                        }
+                                    }
+                                    .history-block {
+                                        flex: 1;
+                                        border-bottom: 1px dashed $borderDash;
+                                    }
+                                    .hadis-block {
+                                        flex: 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .tab3 {
+                height: 100%;
+                .owl-carousel {
+                    height: 100%;
+                    .owl-stage-outer {
+                        height: 100%;
+                        .owl-stage {
+                            height: 100%;
+                            .owl-item {
+                                height: 100%;
+                                .item {
+                                    height: 100%;
+                                    // padding: 0 15px;
+                                    // height: 80vh;
+                                    .miladi-hijri {
+                                        border-bottom: 1px dashed $borderDash;
+                                        .miladi-date,
+                                        .hijri-date {
+                                            @include font(
+                                                $fontSize: 13px,
+                                                $mainColor: #727270
+                                            );
+                                        }
+                                        .miladi-block {
+                                            width: 50%;
+                                            border-right: 1px dashed #727270;
+                                            padding-right: 10px;
+                                        }
+                                        .hijri-block {
+                                            width: 50%;
+                                            padding-left: 10px;
+                                        }
+                                    }
+                                    .category-title {
+                                        border-bottom: 1px dashed $borderDash;
+                                        padding: 7px 0;
+                                        @include font($mainColor: #2b2a28);
+                                    }
+                                    .title {
+                                        @include font();
+                                    }
+                                    .content{
+                                        background:white;
+                                    }
+                                    .share-button{
+                                        justify-content: flex-end;
+                                        align-items: center;
+                                        margin-top:10px;
+                                        .share-icons{
+                                            padding-top:4px;
+                                            display: flex;
+                                            transform:translateX(125px);
+                                            transition:0.5s;
+                                            .fab{
+                                                font-size: 20px;
+                                                margin-left: 25px;
+                                                // position: absolute;
+                                                transition:0.5s; 
+                                                color:$mainColor;
+                                            }                                           
+                                            // .whatTr{
+                                            //     transform:translateX(-30px);
+                                            // }
+                                            // .telTr{
+                                            //     transform:translateX(-60px);
+                                            // }
+                                            // .faceTr{
+                                            //     transform:translateX(-90px);
+                                            // }   
+                                            
+                                        }
+                                        .pushToLeft{
+                                            transform:translateX(0);
+                                        }                                    
+                                        
+                                        ion-icon{
+                                            font-size: 24px;
+                                            margin-left: 25px;
+                                            color:$mainColor;
+                                            background: white;   
+                                            padding:4px;                                         
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .tab4 {                
+                position: fixed;
+                width: 100%;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                overflow-y: scroll;
+                background-image: linear-gradient($mainColor, #0C85A0);
+                z-index:3; 
+                .menu-items{
+                    position: absolute;
+                    height:85%;
+                    .menu-item{
+                        width:29.3%;
+                        height:20%;
+                        margin-left:3%;
+                        margin-top:3%;
+                        border:1px solid white;
+                        float: left;
+                        a{
+                            width:100%;
+                            height:100%;
+                            display: flex;
+                            flex-direction: column;
+                            color:white;
+                            justify-content: center;
+                            align-items: center;
+                            text-decoration: none;
+                            i:before{
+                                font-size: 25px;
+                                margin-bottom: 8px;
+                                display: inline-block;
+                            }
+                            i.fa-file-alt{
+                                transform: rotateX(180deg);
+                                margin-bottom:8px;
+                            }
+                            span{
+                                font-size:14px;                            
+                                text-transform: uppercase;
+                                text-align:center;
+                            }
+                        }
+                    }  
+                    .oraza-table{
+                        margin-top: 3%;
+                        margin-left: 3%;
+                        border: 1px solid white;
+                        width: 94%;
+                        left: 3%;
+                        padding: 10px;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        float: left;
+                        h4{
+                            margin:0;
+                            margin-left: 10px;
+                            text-transform: uppercase;
+                        }
+                    }
+                }                              
+               
+                .ion {
+                    position: absolute;
+                    bottom: 60px;
+                    left: 50%;                    
+                    transform: translateX(-50%);   
+                    font-size: 30px;
+                    color:white;
+                    
+                }                
+            }    
+            .calendarContentMob{
+
+            }   
+            .infoContent{
+                height: 100%;           
+                .info-items{
+                    height:100%; 
+                    .info-item{
+                        margin-bottom:5px;
+                        position: relative;    
+                        .info-item__head{
+                            background: $mainColor;
+                            position: relative;
+                            .info-item__title{
+                                display: block;
+                                padding: 10px;                               
+                                text-transform: uppercase;
+                                color:white;
+                            }
+                            ion-icon{
+                                margin-right:-6px;
+                                position: absolute;
+                                right: 7px;
+                                top: 0;
+                                transition:0.5s;
+                                font-size:22px;
+                                
+                            }
+                        }
+                        .info-item__content{
+                            text-align: justify;
+                            max-height:0;
+                            transition: 0.5s; 
+                            overflow: hidden;      
+                            padding:2px;                                            
+                        }
+                        &.active{       
+                            .info-item__content {
+                                max-height: 400px;
+                                overflow: scroll;
+                                padding:2px;    
+                            } 
+                            ion-icon{
+                                transform:rotate(315deg);
+                                transform-origin: center; 
+                                
+                            }
+                        }
+                    }
+                }
+
+
+            }     
+            .booksContent{         
+                .book-items{
+                    .book-item{
+                        margin-bottom:10px;
+                        position: relative;    
+                        .book-item__head{
+                            background: $mainColor;
+                            position: relative;
+                            .book-item__title{
+                                display: block;
+                                padding: 10px;                               
+                                text-transform: uppercase;
+                                color:white;
+                            }
+                            ion-icon{
+                                margin-right:-6px;
+                                position: absolute;
+                                right: 7px;
+                                top: 0;
+                                transition:0.5s;
+                                font-size:22px;
+                                
+                            }
+                        }
+
+                        .book-item__content{
+                            text-align: justify;
+                            max-height:0;
+                            transition: 0.5s; 
+                            overflow: hidden;   
+                            .content__head{
+                                display: flex;
+                                justify-content: center;
+                                img{
+                                    width:45%;
+                                    margin:10px;
+                                }
+                            }   
+                            .content__footer{
+                                margin: 10px;
+                                a{
+                                    padding: 6px 10px;
+                                    background: $mainColor;
+                                    color: white;
+                                    text-transform: uppercase;
+                                    margin-left:5px;
+                                    .fas{
+                                        margin-right:7px;
+                                    }
+                                }
+                                
+                            }                                            
+                        }
+                        &.active{       
+                            .book-item__content {
+                                max-height: 400px;
+                                overflow: scroll;
+                            } 
+                            ion-icon{
+                                transform:rotate(315deg);
+                                transform-origin: center; 
+                                
+                            }
+                        }
+                    }
+                }
+            } 
+            .linksContent{
+                .link-items{
+                    .link-item{                        
+                        a{
+                            display: flex;
+                            justify-content: center;
+                            border-bottom: 1px dashed rgba(0,0,0,0.2);
+                            padding: 17px 0;
+                            img{
+                                width:80%;
+                            }
+                            // &:last-child{
+                            //     border-bottom: none;
+                            // }
+                        }
+                        
+                       
+                    }
+                }
+            }
+            .citiesContent{             
+                width: 100% !important;
+                .city-items{
+                    width:92vw;
+                    .city-item{
+                        width:100%;
+                        .city-item__head{
+                            background: $mainColor;
+                            position: relative;
+                            .city-item__title{
+                                display: block;
+                                padding: 10px;                               
+                                text-transform: uppercase;
+                                color:white;
+                            }
+                            ion-icon{
+                                margin-right:-6px;
+                                position: absolute;
+                                right: 7px;
+                                top: 0;
+                                transition:0.5s;
+                                font-size:22px;
+                                
+                            }
+                        }
+                        .city-item__content{
+                            padding:4px;
+                            max-height:0;
+                            transition: 0.5s; 
+                            overflow: hidden;  
+                            .column{
+                                display: flex;
+                                flex-direction: column;
+                                width:50%;
+                                
+                                .city-name{
+                                    @include font();
+                                }
+                            }                           
+                            
+                        }
+                        &.active{       
+                            .city-item__content {
+                                max-height: 400px;
+                                overflow: scroll;
+                                .column{
+                                    // display: block !important;
+                                }                                
+                            } 
+                            ion-icon{
+                                transform:rotate(315deg);
+                                transform-origin: center; 
+                                
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            .contactContent{
+                .contact-items{
+                    background:orang;
+                    width:91vw;
+                    .contact-item{
+                        position: relative;
+                        text-transform: uppercase;
+                        text-align: center;
+                        margin-bottom: 10px;
+                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius:3px;
+                        .link{
+                            display: flex;
+                            justify-self: center;
+                            align-items: center;
+                            i, ion-icon{                            
+                                font-size:25px;
+                                color:white;
+                                margin-right:10px;
+                            }
+                            h3{
+                                margin-bottom: 0;
+                                font-size: 18px;
+                                color: white;
+                            }
+                        }
+                        
+                    }
+                    .whatsapp{
+                        background:#25d366;
+                    }
+                    .telegram{
+                        background:#0088cc;
+                    }
+                    .call{
+                        background:#009BAD;
+                    }
+                    .post{
+                        background:#FD9D05;
+                    }
+                    .contact-slide{
+                        height:52vh;
+                        // background:orange;
+                        .owl-carousel{
+                            .owl-item{                                
+                                img{
+                                    width:70%;
+                                    margin:0 auto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .aboutUsContent{
+                .aboutUs{
+                    p{
+                        font-size:18px;
+                    }
+                }
+            }
+        }
+    }
+    .nav {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        margin-bottom: 0 !important;
+        width: 100%;
+        border-top: 6px solid $mainColor;
+        background: #fff;
+        z-index: 2;
+        .nav-item {
+            width: 25%;
+            .nav-link {
+                padding: 13px;
+                color: $mainColor;
+                text-align: center;
+                border-radius: 0;
+                .far {
+                    font-size: 25px;
+                }
+                .fas {
+                    font-size: 25px;
+                }
+            }
+            .nav-link.active {
+                background: #d9dbda;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .miladi-block .miladi-date .day {
+        font-size: 160px;
+    }
+}
+
+@media (min-width: 0px) {
+    .contain {
+        max-width: 180px;
+    }
+}
+@media (min-width: 200px) {
+    .contain {
+        max-width: 190px;
+    }
+}
+@media (min-width: 250px) {
+    .contain {
+        max-width: 240px;
+    }
+}
+@media (min-width: 300px) {
+    .contain {
+        max-width: 290px;
+    }
+}
+@media (min-width: 350px) {
+    .contain {
+        max-width: 340px;
+    }
+}
+@media (min-width: 400px) {
+    .contain {
+        max-width: 390px;
+    }
+}
+
+@media (min-width: 450px) {
+    .contain {
+        max-width: 440px;
+    }
+}
+@media (min-width: 500px) {
+    .contain {
+        max-width: 490px;
+    }
+}
+@media (min-width: 576px) {
+    .contain {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .contain {
+        max-width: 720px;
+    }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="dd04fd21-f225-4c17-92a5-62676870b8e4" name="dostbook" url="http://dostbook.kz">
+        <fileTransfer host="dostbook.kz" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="30b176d9-947a-42e6-9be9-01648aa4df51" name="namaztim" url="http://namaztimes.kz">
+        <fileTransfer host="namaztimes.kz" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="f4ce9b1f-6fa8-4a4f-ae12-1677df1272e1" name="melia" url="http://melia.kz">
+        <fileTransfer host="melia.kz" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
